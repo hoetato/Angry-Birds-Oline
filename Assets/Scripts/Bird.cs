@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class Bird : MonoBehaviour
 {
     public enum BirdState { Idle, Thrown, HitSomething }
-    public GameObject Parent;
     public Rigidbody2D RigidBody;
     public CircleCollider2D Collider;
 

@@ -31,8 +31,20 @@ public class GameController : MonoBehaviour
         _shotBird = Birds[0];
 
     }
+
+    // Update is called once per frame
+    private void Update()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+
+        }
+    }
+
     public void ChangeBird()
     {
+        _shotBird = null;
+
         TapCollider.enabled = false;
 
         if (_isGameEnded)
@@ -43,7 +55,11 @@ public class GameController : MonoBehaviour
         Birds.RemoveAt(0);
 
         if (Birds.Count > 0)
+        {
             SlingShooter.InitiateBird(Birds[0]);
+            _shotBird = Birds[0];
+            return;
+        }
     }
     public void AssignTrail(Bird bird)
     {
@@ -54,8 +70,10 @@ public class GameController : MonoBehaviour
 
     void OnMouseUp()
     {
+
         if (_shotBird != null)
         {
+            Debug.Log("stringtest");
             _shotBird.OnTap();
         }
     }
